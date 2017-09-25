@@ -4,5 +4,7 @@ import consign from 'consign'
 const app = express()
 
 consign()
-  .include('app.js')
+  .include('lib/env.js')
+  .then('lib/config.js')
+  .then('lib/middlewares.js')
   .into(app)

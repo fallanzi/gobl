@@ -10,7 +10,7 @@
     "start": "babel-node index.js",
     "dev": "nodemon -e js --watch ./ --exec 'yarn run lint && babel-node index.js'",
     "lint": "eslint **/*.js --ignore-pattern node_modules/",
-    "test": "jasmine"
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -29,13 +29,15 @@
     "morgan": "^1.8.2"
   },
   "devDependencies": {
+    "babel-jest": "^21.0.2",
     "eslint": "^4.7.2",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jasmine": "^2.8.0",
+    "jest": "^21.1.0",
+    "regenerator-runtime": "^0.11.0",
     "supertest": "^3.0.0"
   }
 }
