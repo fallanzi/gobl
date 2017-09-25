@@ -1,16 +1,17 @@
-import { request } from 'supertest'
-import mongoose from 'mongoose'
+import request from 'supertest'
+import app from '../app.js'
 
-import app from '../app'
+const mongoose = require('mongoose')
 
 afterAll(() => {
   mongoose.connection.dropDatabase()
+  console.log('Database cleaned')
 })
 
 describe('index', () => {
-  it('should render index', async () => {
+  it('should render gobl home page', async () => {
     await request(app)
       .get('/gobl/v1/')
-      .exepect(200)
+      .expect(200)
   })
 })

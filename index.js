@@ -1,8 +1,6 @@
-import express from 'express'
 import consign from 'consign'
-
-const app = express()
+import app from './app.js'
 
 consign()
-  .include('app.js')
+  .include('lib/boot.js')
   .into(app)
