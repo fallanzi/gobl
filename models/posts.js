@@ -6,7 +6,7 @@ const PostSchema = new Schema({
   title: String,
   content: String,
   author: { type: Schema.Types.ObjectId, ref: 'User' },
-  hidden: Boolean,
+  hidden: { type: Boolean, default: true },
   created_at: { type: Date },
   updated_at: { type: Date }
 })
