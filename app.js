@@ -5,6 +5,7 @@ const app = express()
 
 consign()
   .include('lib/env.js')
+  .then('lib/mongoose.js')
   .then('lib/config.js')
   .then('lib/middlewares.js')
   .then('APIs/users/routes')
