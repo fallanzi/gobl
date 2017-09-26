@@ -1,0 +1,4 @@
+TODO:
+  [ ] Modularize the bogl project
+  [ ] User Authentication
+  [ ] Documentation
