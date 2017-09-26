@@ -11,13 +11,21 @@ module.exports.afterAll = () => {
 
 module.exports.beforeAll = () => {
   beforeAll(() => {
-    let aUser = {
+    let user = {
       firstname: 'Hodonou',
       lastname: 'Sounton',
       nickname: 'ben',
-      email: 'test@com.com',
-      password: '12345678',
+      'local.email': 'test@test.com',
+      'local.password': '12345678',
       created: new Date()
+    }
+
+    let login = {
+      firstname: 'Hodonou',
+      lastname: 'Sounton',
+      nickname: 'ben',
+      'local.email': 'test@test.test',
+      'local.password': '12345678'
     }
 
     let post = {
@@ -25,7 +33,8 @@ module.exports.beforeAll = () => {
       content: 'You are an Hero!'
     }
 
-    User.create(aUser)
+    User.create(user)
+    User.create(login)
     Post.create(post)
   })
 }

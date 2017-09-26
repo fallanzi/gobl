@@ -19,8 +19,8 @@ describe('users', () => {
       firstname: 'Hdonou',
       lastname: 'Sounton',
       nickname: 'drxos',
-      email: 'testCreate@com.com',
-      password: '12345678',
+      'local.email': 'testCreate@com.com',
+      'local.password': '12345678',
       created: '2017-09-2'
     }
 
@@ -50,6 +50,18 @@ describe('users', () => {
     user.nickname = 'ariel'
     await request(app)
       .delete(`/gobl/v1/users/${user.id}`)
+      .expect(200)
+  })
+
+  it('should LOGIN a user', async () => {
+    let user = {
+      email: 'test@test.test',
+      password: '12345678'
+    }
+
+    await request(app)
+      .post('/gobl/v1/users/login')
+      .send(user)
       .expect(200)
   })
 })

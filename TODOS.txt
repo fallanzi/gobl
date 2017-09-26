@@ -2,3 +2,4 @@ TODO:
   [x] Modularize the bogl project
   [ ] User Authentication
   [ ] Documentation
+  [ ] Email must be unique
