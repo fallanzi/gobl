@@ -7,17 +7,8 @@ const PostSchema = new Schema({
   content: String,
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   hidden: { type: Boolean, default: true },
-  created_at: { type: Date },
-  updated_at: { type: Date }
-})
-
-PostSchema.pre('save', (done) => {
-  let currentDate = new Date()
-  this.updated_at = currentDate
-  if (!this.created_at) {
-    this.created_at = currentDate
-  }
-  done()
+  created: { type: Date },
+  updated: { type: Date, default: Date.now() }
 })
 
 module.exports = mongoose.model('Post', PostSchema)
