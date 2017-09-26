@@ -1,7 +1,7 @@
 import request from 'supertest'
 
-import app from '../app.js'
-import cfg from './helpers/config.js'
+import app from '../../../app.js'
+import cfg from '../../_helpers/config.js'
 import User from '../models/users'
 
 cfg.beforeAll()

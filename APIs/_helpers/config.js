@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-import User from '../../models/users'
-import Post from '../../models/posts'
+import User from '../users/models/users'
+import Post from '../blog/models/posts'
 
 module.exports.afterAll = () => {
   afterAll(() => {

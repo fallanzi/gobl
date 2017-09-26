@@ -1,9 +1,9 @@
 import request from 'supertest'
 
-import app from '../app.js'
-import cfg from './helpers/config.js'
+import app from '../../../app.js'
+import cfg from '../../_helpers/config.js'
 import Post from '../models/posts'
-import User from '../models/users'
+import User from '../../users/models/users'
 
 cfg.beforeAll()
 cfg.afterAll()
