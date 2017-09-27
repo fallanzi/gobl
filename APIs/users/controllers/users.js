@@ -15,9 +15,16 @@ exports.gel = async (req, res) => {
 }
 // '/gobl/v1/' : Create a user
 exports.post = async (req, res) => {
-  req.body.create = new Date()
   try {
-    res.status(201).json(await User.create(req.body))
+    let user = new User({
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      nickname: req.body.nickname,
+      email: req.body.email,
+      password: req.body.password,
+      created: new Date()
+    })
+    res.status(201).json(await user.save())
   } catch (err) {
     res.status(412).json({ error: err.message })
   }

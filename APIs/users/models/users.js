@@ -1,4 +1,6 @@
 import mongoose from 'mongoose'
+import bcrypt from 'bcrypt'
+const SALT_WORK_FACTOR = 10
 
 const Schema = mongoose.Schema
 
@@ -11,5 +13,16 @@ const UserSchema = new Schema({
   created: { type: Date },
   updated: { type: Date, default: Date.now }
 })
+
+UserSchema.pre('save', function (next) {
+  var user = this
+  const salt = bcrypt.genSaltSync(SALT_WORK_FACTOR)
+  user.password = bcrypt.hashSync(user.password, salt)
+  next()
+})
+
+UserSchema.methods.comparePassword = (candidatePassword) => {
+  return bcrypt.compareSync(candidatePassword, this.password)
+}
 
 module.exports = mongoose.model('User', UserSchema)
