@@ -1,8 +1,9 @@
+import passport from 'passport'
 import User from '../models/users'
 
 // Reset request body id before all
 exports.all = (req, res, next) => {
-  delete req.body.id
+  passport.authenticate('jwt', {session: false})
   next()
 }
 // '/gobl/v1/' : List users 

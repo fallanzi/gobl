@@ -1,9 +1,10 @@
 import mongoose from 'mongoose'
+import passport from 'passport'
 import Post from '../models/posts'
 
 // Reset request body id before all
 exports.all = (req, res, next) => {
-  delete req.body.id
+  passport.authenticate('jwt', {session: false})
   next()
 }
 // '/gobl/v1/' : List posts 

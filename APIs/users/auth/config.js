@@ -1,4 +1,4 @@
 module.exports = {
-  jwtSecret: 'djksdfkjzer0867_zer@@£gfuifg',
+  jwtSecret: process.env.SECRET,
   jwtSession: {session: false}
 }

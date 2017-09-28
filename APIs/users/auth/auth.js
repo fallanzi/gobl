@@ -1,26 +1,28 @@
 import passport from 'passport'
-import {Strategy, ExtractJwt} from 'passport-jwt'
+import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 
-import User from '../models/users'
-import cfg from './config'
+const cfg = require('./config')
+const User = require('../models/users')
 
-module.exports = app => {
-  const params = {
-    secretOrKey: cfg.secretOrKey,
-    jwtFromRequest: ExtractJwt.fromAuthHeader()
+exports.run = () => {
+  const opts = {
+    jwtFromRequest: ExtractJwt.fromAuthHeader(),
+    secretOrKey: cfg.jwtSecret
   }
-  const strategy = new Strategy(params, (payload, done) => {
-    User.findById(payload.id)
-      .then(user => {
-        if (user) {
-          return done(null, {
-            id: user.id,
-            email: user.email
-          })
-        }
-        return done(null, false)
-      })
-      .catch(error => done(error, null))
-  })
-  passport.use(strategy)  
+  passport.use(new JwtStrategy(opts, async (payload, done) => {
+    try {
+      const user = await User.findOne({ id: payload.id })
+      return done(null, user)
+    } catch (err) {
+      return done(err, false)
+    }
+  }))
+}
+
+exports.initialize = () => {
+  return passport.initialize()
+}
+
+exports.authenticate = () => {
+  return passport.authenticate('jwt', cfg.jwtSession)
 }
