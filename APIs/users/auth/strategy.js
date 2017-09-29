@@ -1,12 +1,11 @@
-import passport from 'passport'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 
 const cfg = require('./config')
 const User = require('../models/users')
 
-exports.run = () => {
+module.exports = (passport) => {
   const opts = {
-    jwtFromRequest: ExtractJwt.fromAuthHeader(),
+    jwtFromRequest: ExtractJwt.fromHeader('token'),
     secretOrKey: cfg.jwtSecret
   }
   passport.use(new JwtStrategy(opts, async (payload, done) => {
@@ -17,12 +16,4 @@ exports.run = () => {
       return done(err, false)
     }
   }))
-}
-
-exports.initialize = () => {
-  return passport.initialize()
-}
-
-exports.authenticate = () => {
-  return passport.authenticate('jwt', cfg.jwtSession)
 }

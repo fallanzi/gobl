@@ -6,9 +6,9 @@ const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
   firstname: { type: String, required: true },
-  lastname: String,
+  lastname: { type: String, uppercase: true },
   nickname: { type: String, required: true },
-  email: { type: String, unique: true, required: true },
+  email: { type: String, unique: true, lowercase: true, required: true },
   password: { type: String, required: true, min: 8 },
   created: { type: Date },
   updated: { type: Date, default: Date.now }

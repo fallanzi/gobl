@@ -1,16 +1,30 @@
 import express from 'express'
-import consign from 'consign'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import methodOverride from 'method-override'
+import morgan from 'morgan'
+import helmet from 'helmet'
+import passport from 'passport'
 
 const app = express()
 
-consign({verbose: false})
-  .include('lib/env.js')
-  .then('lib/mongoose.js')
-  .then('lib/db.js')
-  .then('lib/config.js')
-  .then('lib/middlewares.js')
-  .then('APIs/users/routes')
-  .then('APIs/blog/routes')
-  .into(app)
+require('dotenv').config()
+require('./lib/mongoose')
+const strategy = require('./APIs/users/auth/strategy')
+const users = require('./APIs/users/routes/users')
+const token = require('./APIs/users/routes/token')
+const posts = require('./APIs/blog/routes/posts')
+
+app.use(morgan('dev'))
+app.use(helmet())
+app.use(bodyParser.json())
+app.use(methodOverride('X-HTTP-Method-Override'))
+app.use(cors())
+app.use(passport.initialize())
+strategy(passport)
+
+users(app)
+token(app)
+posts(app)
 
 module.exports = app

@@ -1,10 +1,12 @@
 import passport from 'passport'
+import jwt from 'jsonwebtoken'
+import jwtSimple from 'jwt-simple'
 import User from '../models/users'
+import cfg from '../auth/config'
 
 // Reset request body id before all
-exports.all = (req, res, next) => {
+exports.all = (req, res) => {
   passport.authenticate('jwt', {session: false})
-  next()
 }
 // '/gobl/v1/' : List users 
 exports.gel = async (req, res) => {
@@ -52,5 +54,30 @@ exports.delete = async (req, res) => {
     res.status(200).json(await User.findByIdAndRemove(req.params.id))
   } catch (err) {
     res.status(404).json({ error: err.message })
+  }
+}
+
+exports.login = async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email })
+    if (user.isPassword(req.body.password)) {
+      let token = jwt.sign(user, cfg.jwtSecret, cfg.expiresIn)
+      res.status(200).json({token: token})
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+}
+
+exports.token = async (req, res) => {
+  try {
+    const {email, password} = req.body
+    const result = await User.findOne({email: email})
+    if (result.isPassword(password)) {
+      const payload = {id: result.id}
+      res.status(200).json(jwtSimple.encode(payload, cfg.jwtSecret))
+    }
+  } catch (err) {
+    res.status(401).json({error: err.message})
   }
 }
