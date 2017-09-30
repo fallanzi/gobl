@@ -40,9 +40,18 @@ UserSchema.pre('save', (next) => {
   next()
 })
 
+/*eslint-disable */
+
 UserSchema.methods.hash = (password) => {
   const hash = bcrypt.hashSync(password, SALT_WORK_FACTOR)
   return hash
 }
+
+UserSchema.methods.isMatch = function (candidatePassword) {
+  const result = bcrypt.compareSync(candidatePassword, this.password)
+  return result
+}
+
+/* eslint-enable */
 
 module.exports = mongoose.model('User', UserSchema)
