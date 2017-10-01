@@ -1,4 +1,4 @@
-@startuml
+@startuml oq_commande
 actor client
 actor vendeur
 actor oqenyite

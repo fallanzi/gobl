@@ -12,6 +12,7 @@ consign()
   .include('./users/config/strategy.js')
   .include('./lib/middlewares.js')
   .then('./users/routes')
+  .then('./blog/routes')
   .into(app)
 
 app.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {

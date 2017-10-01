@@ -1,4 +1,4 @@
-@startuml
+@startuml gobl
 left to right direction
 skinparam packageStyle rectangle
 
