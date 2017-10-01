@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor journaliste
+actor editeur
+actor redacteur
+actor admin
+
+rectangle gobl {
+  admin --> (gerer redacteur)
+  editeur -- (valider articles)
+  editeur -- (gerer journalistes)
+  redacteur -- (gerer categories)
+  redacteur -- (gerer editeur)
+  journaliste -- (publier articles)  
+}
+
+journaliste <|- editeur
+editeur <|- redacteur
+redacteur <|- admin
+@enduml

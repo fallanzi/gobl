@@ -1,0 +1,37 @@
+@startuml
+actor client
+actor vendeur
+actor oqenyite
+actor api_carmes
+
+
+== traitement commande  ==
+||45||
+
+client -> oqenyite : Soumettre une commande
+activate oqenyite
+
+oqenyite -> api_carmes : Invoquer API reglement
+activate api_carmes
+
+api_carmes -> api_carmes : Traiter transaction
+api_carmes --> oqenyite : Succes transaction
+deactivate api_carmes
+
+oqenyite --> client : Succes de la commande
+deactivate oqenyite
+
+||45||
+
+== remboursement des vendeurs ==
+||45||
+
+oqenyite -> api_carmes : Invoquer API remboursement
+activate api_carmes
+
+api_carmes -> api_carmes : Traiter transaction
+api_carmes --> oqenyite : Succes transaction
+deactivate api_carmes
+oqenyite --> vendeur : Succes remboursement
+
+@enduml
