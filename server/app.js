@@ -1,23 +1,19 @@
 import express from 'express'
-import morgan from 'morgan'
+import consign from 'consign'
 import passport from 'passport'
-import dotenv from 'dotenv'
-import bodyParser from 'body-parser'
 
 import usersRoutes from './users/routes/users'
-import strategy from './users/config/strategy'
 import database from './lib/database'
+import strategy from './users/config/strategy'
 
 const app = express()
 
-dotenv.config()
-app.use(morgan('dev'))
-
 database.mongoose()
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use(passport.initialize())
+consign()
+  .include('./lib/middlewares.js')
+  .into(app)
+
 strategy(passport)
 
 app.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
