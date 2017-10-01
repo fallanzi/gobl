@@ -1,13 +1,8 @@
-import express from 'express'
-import passport from 'passport'
 import ctrl from '../controllers/users'
+import cfg from '../config/config'
 
-const router = express.Router()
-
-router.post('/', passport.authenticate('jwt', { session: false }), ctrl.register)
-router.get('/list', passport.authenticate('jwt', { session: false }), ctrl.list)
-router.post('/login', ctrl.login)
-
-
-module.exports = router
-
+module.exports = (app) => {
+  app.post('/gobl/v1/users', cfg.auth, ctrl.register)
+  app.get('/gobl/v1/users/list', cfg.auth, ctrl.list)
+  app.post('/gobl/v1/users/login', ctrl.login)
+}

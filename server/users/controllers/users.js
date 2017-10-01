@@ -1,8 +1,12 @@
 import passport from 'passport'
-import jwt from 'jwt-simple'
+import jwt from 'jsonwebtoken'
 import User from '../models/users'
 import getPostUser from '../config/getUser'
 import cfg from '../config/config'
+
+exports.isAuth = () => {
+  passport.authenticate('jwt', { session: false })
+}
 
 exports.register = async (req, res) => {
   try {
@@ -30,7 +34,7 @@ exports.login = async (req, res) => {
     if (!user.isMatch(data.password)) {
       res.status(401).json({ error: 'Wrong password' })
     } else {
-      const payload = jwt.encode({ id: user.id }, cfg.secretKey)
+      const payload = jwt.sign({ id: user.id, email: user.email }, cfg.secretKey, cfg.opts)
       res.status(200).json({ token: payload })
     }
   } catch (err) {

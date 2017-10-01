@@ -1,10 +1,11 @@
+import passport from 'passport'
 import jwt from 'passport-jwt'
 import cfg from './config'
 import User from '../models/users'
 
 const JwtStrategy = require('passport-jwt').Strategy
 
-module.exports = (passport) => {
+module.exports = () => {
   const opts = {}
   opts.jwtFromRequest = jwt.ExtractJwt.fromAuthHeaderAsBearerToken()
   opts.secretOrKey = cfg.secretKey
