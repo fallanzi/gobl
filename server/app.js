@@ -10,10 +10,10 @@ dotenv.config()
 database.mongoose(process.env.ENV)
 
 consign()
-  .include('./users/config/strategy.js')
+  .include('./api/users/config/strategy.js')
   .then('./lib/middlewares.js')
-  .then('./users/routes')
-  .then('./blog/routes')
+  .then('./api/users/routes')
+  .then('./api/blog/routes')
   .into(app)
 
 app.get('/', (req, res) => {

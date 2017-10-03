@@ -1,7 +1,7 @@
 import morgan from 'morgan'
 import passport from 'passport'
 import bodyParser from 'body-parser'
-import strategy from '../users/config/strategy'
+import strategy from '../api/users/config/strategy'
 
 module.exports = (app) => {
   app.use(morgan('dev'))
