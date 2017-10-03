@@ -7,7 +7,7 @@ import database from './lib/database'
 const app = express()
 dotenv.config()
 
-database.mongoose(process.env.ENV)
+database.mongoose(process.env.NODE_ENV)
 
 consign()
   .include('./api/users/config/strategy.js')

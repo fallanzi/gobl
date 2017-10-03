@@ -8,18 +8,12 @@ const opts = {
 
 exports.mongoose = (env) => {
   if (env === 'dev') {
-    mongoose.connect('mongodb://localhost/gobl_dev_db', opts, () => {
-      console.log('DEV DATABASE IS RUNNING :::: .... ...')
-    })
+    mongoose.connect('mongodb://localhost/gobl_dev_db', opts)
   }
   if (env === 'test') {
-    mongoose.connect('mongodb://localhost/gobl_test_db', opts, () => {
-      console.log('TEST DATABASE IS RUNNING :::: .... ...')
-    })
+    mongoose.connect('mongodb://localhost/gobl_test_db', opts)
   }
   if (env === 'prod') {
-    mongoose.connect('mongodb://localhost/gobl_prod_db', opts, () => {
-      console.log('PROD DATABASE IS RUNNING :::: .... ...')
-    })
+    mongoose.connect('mongodb://localhost/gobl_prod_db', opts)
   }
 }

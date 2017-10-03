@@ -7,10 +7,10 @@
   "author": "Hodonou SOUNTON <sounton@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node ./www/bin/index.js",
-    "dev": "nodemon -e js --watch ./ --exec 'yarn run lint && babel-node ./www/bin/index.js'",
+    "start": "NODE_ENV=prod babel-node ./www/bin/index.js",
+    "dev": "NODE_ENV=dev nodemon -e js --watch ./ --exec 'yarn run lint && babel-node ./www/bin/index.js'",
     "lint": "eslint **/*.js --ignore-pattern node_modules/",
-    "test": "jest --watchAll",
+    "test": "NODE_ENV=test jest --watchAll",
     "test:co": "yarn run test --coverage"
   },
   "dependencies": {

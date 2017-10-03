@@ -2,7 +2,7 @@
     "extends": "airbnb-base",
     "rules": {
         "semi": "off",
-        "no-console": "off",
+        // "no-console": "off",
         "global-require": "off"
     },
     "env": {

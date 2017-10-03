@@ -1,7 +1,8 @@
 import ctrl from '../controllers/blog'
-// import cfg from '../../users/config/config'
+import cfg from '../../users/config/config'
 
 module.exports = (app) => {
+  app.all('/gobl/v1/*', cfg.auth)
   app.get('/gobl/v1/posts', ctrl.list_blog)
   app.post('/gobl/v1/posts', ctrl.create_blog)
   app.get('/gobl/v1/posts/:id', ctrl.read_blog)
