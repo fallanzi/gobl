@@ -30,10 +30,11 @@
     "morgan": "^1.8.2",
     "passport": "^0.4.0",
     "passport-http-bearer": "^1.0.1",
-    "passport-jwt": "^3.0.0"
+    "passport-jwt": "^3.0.0",
+    "superagent": "^3.6.2"
   },
   "devDependencies": {
-    "babel-jest": "^21.0.2",
+    "babel-jest": "^21.2.0",
     "eslint": "^4.8.0",
     "eslint-config-airbnb-base": "^12.0.1",
     "eslint-plugin-import": "^2.7.0",

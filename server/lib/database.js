@@ -9,17 +9,17 @@ const opts = {
 exports.mongoose = (env) => {
   if (env === 'dev') {
     mongoose.connect('mongodb://localhost/gobl_dev_db', opts, () => {
-      console.log('DATABASE IS RUNNING :::: .... ...')
+      console.log('DEV DATABASE IS RUNNING :::: .... ...')
     })
   }
   if (env === 'test') {
     mongoose.connect('mongodb://localhost/gobl_test_db', opts, () => {
-      console.log('DATABASE IS RUNNING :::: .... ...')
+      console.log('TEST DATABASE IS RUNNING :::: .... ...')
     })
   }
   if (env === 'prod') {
     mongoose.connect('mongodb://localhost/gobl_prod_db', opts, () => {
-      console.log('DATABASE IS RUNNING :::: .... ...')
+      console.log('PROD DATABASE IS RUNNING :::: .... ...')
     })
   }
 }
