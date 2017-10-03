@@ -36,7 +36,7 @@ exports.update = async (req, res) => {
 exports.delete = async (req, res) => {
   try {
     await Category.findByIdAndRemove(req.params.id)
-    res.status(200).json({ delete: 'Success'})
+    res.status(200).json({ delete: 'Success' })
   } catch (err) {
     res.status(500).json({ error: err.message })
   }
