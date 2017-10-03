@@ -10,7 +10,6 @@ module.exports = () => {
   opts.jwtFromRequest = jwt.ExtractJwt.fromAuthHeaderAsBearerToken()
   opts.secretOrKey = cfg.secretKey
   passport.use(new JwtStrategy(opts, (payload, done) => {
-    console.log(payload)
     User.findById(payload.id, (err, user) => {
       if (err) {
         return done(err, false)
