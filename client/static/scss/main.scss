@@ -1,0 +1,225 @@
+$md-width: 08.1%;
+
+
+
+////////////////////////////////////////////////////////////////////////////
+/*                           GLOBAL  SCSS  CODE                           */
+////////////////////////////////////////////////////////////////////////////
+
+.block{
+
+	width: 1104px;
+	margin: 0 auto;
+	padding: 0 20px;
+	display: block;
+
+	.line{
+		width: 98%;
+		margin: 0 auto;
+	}
+
+	.md-1, .md-2, .md-3, .md-4, .md-5, .md-6, .md-7, .md-8, .md-9, .md-10, .md-11, .md-12{
+		display: inline-block!important;
+	}
+
+	.md-1{
+		width: $md-width;
+	}
+
+	.md-3{
+		width: $md-width*3;
+	}
+
+	.md-4{
+		width: $md-width*4;
+	}
+
+	.md-8{
+		width: $md-width*8;
+	}
+
+	.md-offset-2{
+		margin-left: $md-width*2;
+	}
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////
+/*                            MAIN  SCSS  CODE                            */
+////////////////////////////////////////////////////////////////////////////
+
+
+body{
+	width: 100vw;
+	overflow-x: hidden;
+	margin: 0;
+}
+
+header{
+
+	height: 60px;
+	line-height: 60px;
+	color: #fff;
+	background-color: #ff4c4c;
+	position: fixed;
+	width: 100%;
+
+	.block{
+		width: 100%!important;
+		.line{
+			padding-right: 25px;
+		}
+		.name{
+			font-size: 1.3rem;
+			font-weight: bold;
+		}
+		.menu, .research{
+			text-align: right;
+		}
+	}
+
+	.menu{
+		ul{
+			padding: 0!important;
+			margin: 0!important;
+		}
+
+		a{
+			color: #fff;
+			font-weight: bold;
+			margin-left: 30px;
+			text-decoration: none;
+		}
+	}
+
+	.research{
+		form{
+			padding: 0;
+
+		}
+
+		input, button{
+			height: 35px;
+			border: none;
+			font-size: 1rem;
+		}
+
+		input{
+			width: 70%;
+			padding-left: 10px;
+		}
+
+		button{
+			width: 10%;
+		}
+	}
+}
+
+
+section#title{
+	padding: 50px 0 75px 0;
+	background-color: #ff4c4c;
+	color: #fff;
+	padding: 60px;
+
+	.md-8{
+		text-align: justify;
+		float: none!important;
+		h1{
+			font-size: 2.5rem;
+		}
+		p{
+			font-size: 1.7rem;
+		}
+		span.date{
+			font-size: 1.2rem;
+			font-style: italic;
+			color: #ddd;
+		}
+	}
+}
+
+
+section.main{
+	padding-bottom: 60px;
+	h1, h2, h3{
+		font-weight: bolder;
+		color: #777;
+	}
+
+	h1{
+		font-size: 2rem;
+		margin-top: 60px;
+	}
+	h2{
+		font-size: 1.7rem;
+		margin-top: 45px;
+	}
+	h3{
+		font-size: 1.5rem;
+		margin-top: 35px;
+	}
+	p{
+		font-size: 1.4rem;
+		color: #555;
+		text-align: justify;
+	}
+	span.date{
+		font-size: 1.2rem;
+		font-style: italic;
+		color: #888;
+	}
+	span.important{
+		font-size: 1.2rem;
+		font-style: italic;
+		color: #000;
+		font-weight: bold;
+	}
+	a{
+		color: #ff4c4c;
+		text-decoration: none;
+	}
+	a:hover{
+		color: darken(red, 10);
+	}
+}
+
+footer{
+	margin-top: 40px!important;
+	display: block;
+	padding-bottom: 40px;
+	.md-8{
+		text-align: center;
+	}
+	hr{
+		border: none;
+		height: 1px;
+		background-color: #ddd;
+		margin-bottom: 60px;
+	}
+	div.social{
+		margin-bottom: 40px;
+		a{
+			text-decoration: none;
+			color: #fff;
+			padding: 10px 30px;
+			margin: 0 20px;
+		}
+		a.twitter{
+			background-color: #1589E7;
+		}
+		a.facebook{
+			background-color: #3b5998;
+		}
+		a.google{
+			background-color: darken(red, 5);
+		}
+	}
+	span.copy{
+		color: #555;
+		font-size: 1.1rem; 
+		font-style: italic;
+		margin-top: 30px;
+	}
+}

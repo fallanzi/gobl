@@ -2,13 +2,19 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Vuetify from 'vuetify'
+import VueResource from 'vue-resource'
+
 import App from './App';
 // import router from './router';
 
 Vue.config.productionTip = false;
 Vue.use(Vuetify)
+Vue.use(VueResource)
+Vue.http.options.emulateHTTP = true
+Vue.http.options.root = ''
 
 import('vuetify/dist/vuetify.min.css')
+
 
 /* eslint-disable no-new */
 new Vue({
