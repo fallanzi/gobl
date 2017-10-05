@@ -7,24 +7,7 @@
         <div class="line">
           <div class="md-8 md-offset-2">
             <h1>Titre de niveau 1</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </p>
-
-            <h2>Titre de niveau 2</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              <a href="#">we have a link here</a> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </p>
-
-            <span class="important">Here we have a very important text</span>
-
-            <h3>Titre de niveau 3</h3>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </p>
-            <span class="date">04 octobre 2017</span>
+            {{ users }}
           </div>
         </div>
       </div>
@@ -45,9 +28,22 @@ export default {
     TSectionTitle,
     TFooter,
   },
+  data() {
+    return {
+      users: [],
+    }
+  },
+  async mounted() {
+    this.users = this.$resource('http://localhost:8081')
+    try {
+      const response = await this.users.query()
+      this.users = response.data
+    } catch (err) {
+      // eslint-disable-next-line
+      console.log('Erreur', err)
+    }
+  },
 }
 </script>
 
-<style src="../static/css/main.css">
-
-</style>
+<style src="../static/css/main.css"></style>

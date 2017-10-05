@@ -10,8 +10,8 @@ import App from './App';
 Vue.config.productionTip = false;
 Vue.use(Vuetify)
 Vue.use(VueResource)
-Vue.http.options.emulateHTTP = true
-Vue.http.options.root = ''
+Vue.http.options.emulateJSON = true
+// Vue.http.options.root = ''
 
 import('vuetify/dist/vuetify.min.css')
 
