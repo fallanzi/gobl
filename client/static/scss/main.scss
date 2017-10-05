@@ -1,10 +1,37 @@
 $md-width: 08.1%;
+$color: #666633;
 
+
+////////////////////////////////////////////////////////////////////////////
+/*                            FONT  SCSS  CODE                            */
+////////////////////////////////////////////////////////////////////////////
+
+@font-face{
+	font-family: robotob;
+	src: url('../fonts/roboto/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: robotol;
+	src: url('../fonts/roboto/Roboto-Light.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
 
 
 ////////////////////////////////////////////////////////////////////////////
 /*                           GLOBAL  SCSS  CODE                           */
 ////////////////////////////////////////////////////////////////////////////
+
+h1, h2, h3, h4, h5, h6{
+	font-family: robotob;
+}
+
+p, i, span, div{
+	font-family: robotol;
+}
 
 .block{
 
@@ -58,10 +85,10 @@ body{
 
 header{
 
-	height: 60px;
-	line-height: 60px;
+	height: 70px;
+	line-height: 70px;
 	color: #fff;
-	background-color: #ff4c4c;
+	background-color: $color;
 	position: fixed;
 	width: 100%;
 
@@ -72,7 +99,22 @@ header{
 		}
 		.name{
 			font-size: 1.3rem;
-			font-weight: bold;
+			font-weight: bold!important;
+			word-spacing: 10px;
+			width: 25%;
+			float: left;
+			h4{
+				margin: 0!important;
+			}
+		}
+		.menu{
+			width: 48%;
+			float: left;
+		}
+		.research{
+			width: 25%;
+			float: left;
+			padding-right: 2%;
 		}
 		.menu, .research{
 			text-align: right;
@@ -90,52 +132,51 @@ header{
 			font-weight: bold;
 			margin-left: 30px;
 			text-decoration: none;
+			&:hover{
+				color: #ddd;
+			}
 		}
 	}
 
 	.research{
 		form{
 			padding: 0;
-
 		}
 
 		input, button{
-			height: 35px;
+			height: 40px;
 			border: none;
 			font-size: 1rem;
 		}
 
 		input{
 			width: 70%;
+			background-color: darken($color, 15);
 			padding-left: 10px;
+			margin-right: 0;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+			outline: none;
+			&::placeholder{
+				color: #ddd;
+			}
+			&:focus{
+				background-color: darken($color, 15);
+				color: #eee;
+				&::placeholder{
+					color: #fff;
+				}
+			}
 		}
 
 		button{
-			width: 10%;
-		}
-	}
-}
-
-
-section#title{
-	padding: 50px 0 75px 0;
-	background-color: #ff4c4c;
-	color: #fff;
-	padding: 60px;
-
-	.md-8{
-		text-align: justify;
-		float: none!important;
-		h1{
-			font-size: 2.5rem;
-		}
-		p{
-			font-size: 1.7rem;
-		}
-		span.date{
-			font-size: 1.2rem;
-			font-style: italic;
-			color: #ddd;
+			width: 15%;
+			margin-left: -5px;
+			background-color: darken($color, 10);
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+			color: #fff;
+			cursor: pointer;
 		}
 	}
 }
@@ -161,7 +202,8 @@ section.main{
 		margin-top: 35px;
 	}
 	p{
-		font-size: 1.4rem;
+		font-size: 1.3rem;
+		line-height: 2rem;
 		color: #555;
 		text-align: justify;
 	}
@@ -177,7 +219,7 @@ section.main{
 		font-weight: bold;
 	}
 	a{
-		color: #ff4c4c;
+		color: $color;
 		text-decoration: none;
 	}
 	a:hover{
@@ -203,17 +245,33 @@ footer{
 		a{
 			text-decoration: none;
 			color: #fff;
-			padding: 10px 30px;
-			margin: 0 20px;
+			margin-right: 20px;
+			img{
+				padding: 12px;
+				background-color: #bbb;
+				border-radius: 50%;
+			}
 		}
 		a.twitter{
-			background-color: #1589E7;
+			&:hover{
+				img{
+					background-color: #1589E7;
+				}
+			}
 		}
 		a.facebook{
-			background-color: #3b5998;
+			&:hover{
+				img{
+					background-color: #3b5998;
+				}
+			}
 		}
 		a.google{
-			background-color: darken(red, 5);
+			&:hover{
+				img{
+					background-color: darken(red, 3);
+				}
+			}
 		}
 	}
 	span.copy{
@@ -221,5 +279,95 @@ footer{
 		font-size: 1.1rem; 
 		font-style: italic;
 		margin-top: 30px;
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+/*                            FORM  SCSS  CODE                            */
+////////////////////////////////////////////////////////////////////////////
+
+div.form-container{
+	margin-top: 60px;
+	form{
+		label{
+			font-size: 1.2rem;
+			font-weight: bold;
+			margin-bottom: 12px;
+			display: block;
+			&.check{
+				display: inline!important;
+			}
+		}
+
+		input{
+			border: 1px solid #ccc;
+		}
+
+		input, select{
+			width: 100%;
+			height: 35px;
+			line-height: 35px;
+			margin-bottom: 30px;
+			font-size: 1rem;
+			padding-left: 5px;
+			color: #444;
+			background: none;
+		}
+
+		textarea{
+			width: 100%;
+			height: 200px;
+			padding: 10px 5px;
+			font-size: 1.1rem;
+			margin-bottom: 30px;
+		}
+
+		input, select, textarea{
+			outline: none;
+			border-radius: 5px;
+			&:focus{
+				box-shadow: 0 0 3px #999;
+			}
+		}
+
+		button{
+			height: 50px;
+			line-height: 50px;
+			padding: 0 40px;
+			font-size: 1rem;
+			cursor: pointer;
+			background: linear-gradient($color, darken($color, 20));
+			border: 1px solid #eee;
+			color: #fff;
+			border-radius: 6px;
+			transition: 300ms ease-in-out;
+
+			&:hover{
+				background: linear-gradient(darken($color, 20), $color);
+				transition: 300ms ease-in-out;
+			}
+		}
+	}
+}
+
+
+div.list{
+	ul{
+		padding: 0;
+		border: 1px solid #efefef;
+		li{
+			list-style: none;
+			height: 40px;
+			line-height: 40px;
+			color: #555;
+			padding-left: 10px;
+			&:nth-child(2n){
+				background-color: #efefef;
+			}
+			&:hover{
+				background-color: #e2e2e2;
+			}
+		}
 	}
 }

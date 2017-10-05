@@ -2,11 +2,11 @@
   <header>
     <div class="block">
       <div class="line">
-        <div class="md-3 name">
+        <div class="name">
           GOBL BLOG LOBG
         </div>
 
-        <div class="md-4 md-offset-2 menu">
+        <div class="menu">
           <ul>
             <a href="#">A PROPOS</a>
             <a href="#">REALISATION</a>
@@ -14,7 +14,7 @@
           </ul>
         </div>
 
-        <div class="md-3 research">
+        <div class="research">
           <form action="#">
             <input type="search" name="" placeholder="rechercher">
             <button>Go</button>

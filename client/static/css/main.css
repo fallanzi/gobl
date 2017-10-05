@@ -1,4 +1,25 @@
+/*                            FONT  SCSS  CODE                            */
+@font-face {
+  font-family: robotob;
+  src: url("../fonts/roboto/Roboto-Regular.ttf");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: robotol;
+  src: url("../fonts/roboto/Roboto-Light.ttf");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: title-font;
+  src: url("../fonts/roboto/Bowlby.ttf");
+  font-weight: bold; }
 /*                           GLOBAL  SCSS  CODE                           */
+h1, h2, h3, h4, h5, h6 {
+  font-family: robotob; }
+
+p, i, span, div {
+  font-family: robotol; }
+
 .block {
   width: 1104px;
   margin: 0 auto;
@@ -27,10 +48,10 @@ body {
   margin: 0; }
 
 header {
-  height: 60px;
-  line-height: 60px;
+  height: 70px;
+  line-height: 70px;
   color: #fff;
-  background-color: #ff4c4c;
+  background-color: #666633;
   position: fixed;
   width: 100%; }
   header .block {
@@ -39,7 +60,19 @@ header {
       padding-right: 25px; }
     header .block .name {
       font-size: 1.3rem;
-      font-weight: bold; }
+      font-weight: bold !important;
+      word-spacing: 10px;
+      width: 25%;
+      float: left; }
+      header .block .name h4 {
+        margin: 0 !important; }
+    header .block .menu {
+      width: 48%;
+      float: left; }
+    header .block .research {
+      width: 25%;
+      float: left;
+      padding-right: 2%; }
     header .block .menu, header .block .research {
       text-align: right; }
   header .menu ul {
@@ -50,34 +83,56 @@ header {
     font-weight: bold;
     margin-left: 30px;
     text-decoration: none; }
+    header .menu a:hover {
+      color: #ddd; }
   header .research form {
     padding: 0; }
   header .research input, header .research button {
-    height: 35px;
+    height: 40px;
     border: none;
     font-size: 1rem; }
   header .research input {
     width: 70%;
-    padding-left: 10px; }
+    background-color: #33331a;
+    padding-left: 10px;
+    margin-right: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none; }
+    header .research input::placeholder {
+      color: #ddd; }
+    header .research input:focus {
+      background-color: #33331a;
+      color: #eee; }
+      header .research input:focus::placeholder {
+        color: #fff; }
   header .research button {
-    width: 10%; }
+    width: 15%;
+    margin-left: -5px;
+    background-color: #444422;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #fff;
+    cursor: pointer; }
 
 section#title {
   padding: 50px 0 75px 0;
-  background-color: #ff4c4c;
+  background-color: #666633;
   color: #fff;
-  padding: 60px; }
+  padding: 100px 60px; }
   section#title .md-8 {
     text-align: justify;
     float: none !important; }
-    section#title .md-8 h1 {
-      font-size: 2.5rem; }
+    section#title .md-8 div.name {
+      font-size: 3rem;
+      flex-flow: title-font;
+      font-weight: bolder; }
     section#title .md-8 p {
       font-size: 1.7rem; }
     section#title .md-8 span.date {
       font-size: 1.2rem;
       font-style: italic;
-      color: #ddd; }
+      color: #eee; }
 
 section.main {
   padding-bottom: 60px; }
@@ -94,7 +149,8 @@ section.main {
     font-size: 1.5rem;
     margin-top: 35px; }
   section.main p {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
     color: #555;
     text-align: justify; }
   section.main span.date {
@@ -107,7 +163,7 @@ section.main {
     color: #000;
     font-weight: bold; }
   section.main a {
-    color: #ff4c4c;
+    color: #666633;
     text-decoration: none; }
   section.main a:hover {
     color: #cc0000; }
@@ -128,18 +184,82 @@ footer {
     footer div.social a {
       text-decoration: none;
       color: #fff;
-      padding: 10px 30px;
-      margin: 0 20px; }
-    footer div.social a.twitter {
+      margin-right: 20px; }
+      footer div.social a img {
+        padding: 12px;
+        background-color: #bbb;
+        border-radius: 50%; }
+    footer div.social a.twitter:hover img {
       background-color: #1589E7; }
-    footer div.social a.facebook {
+    footer div.social a.facebook:hover img {
       background-color: #3b5998; }
-    footer div.social a.google {
-      background-color: #e60000; }
+    footer div.social a.google:hover img {
+      background-color: #f00000; }
   footer span.copy {
     color: #555;
     font-size: 1.1rem;
     font-style: italic;
     margin-top: 30px; }
+
+/*                            FORM  SCSS  CODE                            */
+div.form-container {
+  margin-top: 60px; }
+  div.form-container form label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    display: block; }
+    div.form-container form label.check {
+      display: inline !important; }
+  div.form-container form input {
+    border: 1px solid #ccc; }
+  div.form-container form input, div.form-container form select {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    padding-left: 5px;
+    color: #444;
+    background: none; }
+  div.form-container form textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px 5px;
+    font-size: 1.1rem;
+    margin-bottom: 30px; }
+  div.form-container form input, div.form-container form select, div.form-container form textarea {
+    outline: none;
+    border-radius: 5px; }
+    div.form-container form input:focus, div.form-container form select:focus, div.form-container form textarea:focus {
+      box-shadow: 0 0 3px #999; }
+  div.form-container form button {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: linear-gradient(#666633, #222211);
+    border: 1px solid #eee;
+    color: #fff;
+    border-radius: 6px;
+    transition: 300ms ease-in-out; }
+    div.form-container form button:hover {
+      background: linear-gradient(#222211, #666633);
+      transition: 300ms ease-in-out; }
+
+div.list ul {
+  padding: 0;
+  border: 1px solid #efefef; }
+  div.list ul li {
+    list-style: none;
+    height: 40px;
+    line-height: 40px;
+    color: #555;
+    padding-left: 10px; }
+    div.list ul li:nth-child(2n) {
+      background-color: #efefef; }
+    div.list ul li:hover {
+      background-color: #e2e2e2; }
 
 /*# sourceMappingURL=main.css.map */

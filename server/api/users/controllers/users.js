@@ -29,7 +29,7 @@ exports.read = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    res.status(200).json(await User.findByIdAndUpdate(req.params.id))
+    res.status(200).json(await User.findByIdAndUpdate(req.params.id, req.body))
   } catch (err) {
     res.status(304).json({ error: err.message })
   }
