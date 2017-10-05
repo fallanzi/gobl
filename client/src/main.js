@@ -13,7 +13,7 @@ Vue.use(VueResource)
 Vue.http.options.emulateJSON = true
 // Vue.http.options.root = ''
 
-import('vuetify/dist/vuetify.min.css')
+// import('vuetify/dist/vuetify.min.css')
 
 
 /* eslint-disable no-new */
