@@ -8,6 +8,9 @@
           <div class="md-8 md-offset-2">
             <h1>Titre de niveau 1</h1>
             {{ users }}
+            <!-- <router-link :to="{ name: 'Hello' }">Home</router-link> -->
+            <router-link to="/users/list">Users</router-link>
+            <router-view></router-view>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import Vuetify from 'vuetify'
 import VueResource from 'vue-resource'
 
 import App from './App';
-// import router from './router';
+import router from './router/index';
 
 Vue.config.productionTip = false;
 Vue.use(Vuetify)
@@ -19,7 +19,7 @@ Vue.http.options.emulateJSON = true
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  // router,
+  router,
   template: '<App/>',
   components: { App },
 });

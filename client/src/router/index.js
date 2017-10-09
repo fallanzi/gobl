@@ -1,15 +1,15 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Test from '@/components/Test';
+import UsersList from '@/components/UsersList';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Test',
-      component: Test,
+      path: '/users/list',
+      name: 'UsersList',
+      component: UsersList,
     },
   ],
 });
