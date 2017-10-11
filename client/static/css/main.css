@@ -9,10 +9,6 @@
   src: url("../fonts/roboto/Roboto-Light.ttf");
   font-weight: normal;
   font-style: normal; }
-@font-face {
-  font-family: title-font;
-  src: url("../fonts/roboto/Bowlby.ttf");
-  font-weight: bold; }
 /*                           GLOBAL  SCSS  CODE                           */
 h1, h2, h3, h4, h5, h6 {
   font-family: robotob; }
@@ -115,25 +111,6 @@ header {
     color: #fff;
     cursor: pointer; }
 
-section#title {
-  padding: 50px 0 75px 0;
-  background-color: #666633;
-  color: #fff;
-  padding: 100px 60px; }
-  section#title .md-8 {
-    text-align: justify;
-    float: none !important; }
-    section#title .md-8 div.name {
-      font-size: 3rem;
-      flex-flow: title-font;
-      font-weight: bolder; }
-    section#title .md-8 p {
-      font-size: 1.7rem; }
-    section#title .md-8 span.date {
-      font-size: 1.2rem;
-      font-style: italic;
-      color: #eee; }
-
 section.main {
   padding-bottom: 60px; }
   section.main h1, section.main h2, section.main h3 {
@@ -204,16 +181,16 @@ footer {
 /*                            FORM  SCSS  CODE                            */
 div.form-container {
   margin-top: 60px; }
-  div.form-container form label {
+  div.form-container label {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 12px;
     display: block; }
-    div.form-container form label.check {
+    div.form-container label.check {
       display: inline !important; }
-  div.form-container form input {
+  div.form-container input {
     border: 1px solid #ccc; }
-  div.form-container form input, div.form-container form select {
+  div.form-container input, div.form-container select {
     width: 100%;
     height: 35px;
     line-height: 35px;
@@ -222,18 +199,18 @@ div.form-container {
     padding-left: 5px;
     color: #444;
     background: none; }
-  div.form-container form textarea {
+  div.form-container textarea {
     width: 100%;
     height: 200px;
     padding: 10px 5px;
     font-size: 1.1rem;
     margin-bottom: 30px; }
-  div.form-container form input, div.form-container form select, div.form-container form textarea {
+  div.form-container input, div.form-container select, div.form-container textarea {
     outline: none;
     border-radius: 5px; }
-    div.form-container form input:focus, div.form-container form select:focus, div.form-container form textarea:focus {
+    div.form-container input:focus, div.form-container select:focus, div.form-container textarea:focus {
       box-shadow: 0 0 3px #999; }
-  div.form-container form button {
+  div.form-container button {
     height: 50px;
     line-height: 50px;
     padding: 0 40px;
@@ -244,7 +221,7 @@ div.form-container {
     color: #fff;
     border-radius: 6px;
     transition: 300ms ease-in-out; }
-    div.form-container form button:hover {
+    div.form-container button:hover {
       background: linear-gradient(#222211, #666633);
       transition: 300ms ease-in-out; }
 
