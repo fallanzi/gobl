@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import UsersList from '@/components/UsersList'
 import Home from '@/components/Home'
+import Login from '@/components/Login'
 import Post from '@/components/Post'
 import About from '@/components/About'
 import Contacts from '@/components/Contacts'
@@ -13,6 +14,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/account/login',
+    name: 'Login',
+    component: Login,
   },
   {
     path: '/post/:id',

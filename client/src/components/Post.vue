@@ -1,7 +1,6 @@
 <template>
   <div>
-    
-  <t-section-title :title='post.title' :resume='post.content'></t-section-title>
+  <t-section-title :title='post.title' :resume='post.resume'></t-section-title>
     <section class="main">
       <div class="block">
         <div class="line">

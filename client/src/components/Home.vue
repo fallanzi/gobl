@@ -8,9 +8,8 @@
             <div v-for="post in posts">
               <h3>{{post.title}}</h3>
               <p>
-                {{post.content}}
+                {{post.resume}}
               </p>
-              <span class="date"> {{post.created}} </span>
               <router-link :to="{name:'Post', params:{id: `${post._id}` } }" > Lire </router-link>
             </div>
           </div>
