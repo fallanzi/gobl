@@ -1,8 +1,17 @@
 <template>
-  <div>
-    <h5>All Users</h5>    
-    {{ users }}
-  </div>
+  <section class="main">
+    <div class="block">
+      <div class="line">
+        <div class="md-8 md-offset-2">
+          <h1> {{title}} </h1>
+          <p v-for="user in users" >
+            {{user.firstname}} {{user.lastname}}
+          </p>
+          <!-- <router-link :to="{ name: 'Hello' }">Home</router-link> -->
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -20,6 +29,7 @@ export default {
   data() {
     return {
       users: [],
+      title: 'Liste des Utilisateurs',
     }
   },
   async mounted() {

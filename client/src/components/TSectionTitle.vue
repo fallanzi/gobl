@@ -3,11 +3,11 @@
     <div class="block">
       <div class="line">
         <div class="md-8 md-offset-2">
-          <div class="name">Titre de la page ici</div>
+          <div class="name"> {{title}} </div>
           <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            {{resume}}
           </p><br>
-          <span class="date">04 octobre 2017</span>
+          <span class="date">Drxos</span>
         </div>
       </div>
     </div>
@@ -48,4 +48,14 @@
   }
   
 </style>
+
+<script>
+export default {
+  props: {
+    title: String,
+    resume: String,
+  },
+}
+</script>
+
 
