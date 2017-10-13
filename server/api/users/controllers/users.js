@@ -54,7 +54,7 @@ exports.login = async (req, res) => {
       res.status(401).json({ error: 'Wrong password' })
     } else {
       const payload = jwt.sign({ id: user.id, email: user.email }, cfg.secretKey, cfg.opts)
-      res.status(200).json({ token: payload })
+      res.status(200).json({ token: payload, user })
     }
   } catch (err) {
     res.status(500).json({ error: err.message })

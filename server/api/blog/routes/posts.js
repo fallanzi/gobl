@@ -1,7 +1,7 @@
 import ctrl from '../controllers/posts'
 
 module.exports = (app) => {
-  app.get('/gobl/posts', ctrl.list)
+  app.get('/gobl/v1/posts', ctrl.list)
   app.post('/gobl/v1/posts', ctrl.create)
 
   app.get('/gobl/posts/:id', ctrl.read)

@@ -7,7 +7,7 @@
           <p>
             {{resume}}
           </p><br>
-          <span class="date">Drxos</span>
+          <span class="date">{{closing}}</span>
         </div>
       </div>
     </div>
@@ -54,6 +54,7 @@ export default {
   props: {
     title: String,
     resume: String,
+    closing: String,
   },
 }
 </script>

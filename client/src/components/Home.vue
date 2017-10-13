@@ -43,10 +43,12 @@ export default {
     }
   },
   async mounted() {
-    this.posts = this.$resource('http://localhost:8081/gobl/posts/')
+    this.posts = this.$resource('http://localhost:8081/v1/gobl/posts/')
     try {
       const response = await this.posts.query()
       this.posts = response.data
+      // eslint-disable-next-line
+      console.log(this.posts)
     } catch (err) {
       // eslint-disable-next-line
       console.log('Erreur', err)

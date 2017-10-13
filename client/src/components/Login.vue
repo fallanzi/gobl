@@ -9,7 +9,8 @@
             <label for="email">E-mail</label>  
             <input type="email" name="email" id="email" v-model="email"> 
             <label for="password">Password</label>  
-            <input type="password" name="password" id="password" v-model="password"> 
+            <input type="password" name="password" id="password" v-model="password">
+            <button type="submit" @click="login()">Login</button> 
           </div>  
           <!-- <router-link :to="{ name: 'Hello' }">Home</router-link> -->
         </div>
@@ -20,32 +21,43 @@
 </template>
 
 <script>
-import THeader from '@/components/THeader'
 import TSectionTitle from '@/components/TSectionTitle'
-import TFooter from '@/components/TFooter'
+import Home from '@/components/Home'
+// import AuthenticationService from '@/services/AuthenticationService'
 
 export default {
-  name: 'app',
-  components: {
-    THeader,
-    TSectionTitle,
-    TFooter,
-  },
   data() {
     return {
-      users: [],
-      title: 'Liste des Utilisateurs',
+      email: '',
+      password: '',
+      error: null,
     }
   },
-  async mounted() {
-    this.users = this.$resource('http://localhost:8081/gobl/login/')
-    try {
-      const response = await this.users.query()
-      this.users = response.data
-    } catch (err) {
-      // eslint-disable-next-line
-      console.log('Erreur', err)
-    }
+  components: {
+    TSectionTitle,
+    Home,
+  },
+  methods: {
+    async login() {
+      try {
+        const formlogin = {
+          email: this.email,
+          password: this.password,
+        }
+        const response = await this.$http.post('http://localhost:8081/login', formlogin)
+        const t = response.data.token
+        const u = response.data.user
+        this.$store.dispatch('setTokenAct', t)
+        this.$store.dispatch('setUserAct', u)
+        this.email = ''
+        this.password = ''
+        response.headers.set('Authorization', `Bearer ${t}`)
+        this.$router.push({ name: 'Home' })
+      } catch (error) {
+        // eslint-disable-next-line
+        console.log(error)
+      }
+    },
   },
 }
 </script>

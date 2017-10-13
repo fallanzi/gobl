@@ -181,6 +181,29 @@ header{
 	}
 }
 
+section#title {
+  padding: 50px 0 75px 0;
+  background-color: $color;
+  color: #fff;
+  padding: 60px;
+  .md-8 {
+    text-align: justify;
+    float: none!important;
+    div.name {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.7rem;
+    }
+    span.date {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #eee;
+    }
+  }
+}
+
+
 
 section.main{
 	padding-bottom: 60px;

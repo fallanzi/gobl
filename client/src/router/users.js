@@ -6,12 +6,12 @@ import About from '@/components/About'
 
 Vue.use(Router);
 const ques = {
-  path: '/about',
+  path: '/hash',
   name: 'About',
   component: About,
 }
 
 
-export default{
+export default new Router({
   ques,
-}
+})
