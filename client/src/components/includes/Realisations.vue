@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import TSectionTitle from '@/components/TSectionTitle'
+  import TSectionTitle from '@/components/includes/TSectionTitle'
 
   export default {
     components: {

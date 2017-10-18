@@ -12,7 +12,9 @@
               <textarea name="description" id="description" cols="30" rows="10" v-model="description"></textarea>
               <button type="submit" @click="add()">Save</button>
             </div>
-            {{cats}}
+            <span v-for="cat in cats">
+              {{cat.name}}
+            </span>
           </div>
         </div>
       </div>
@@ -20,7 +22,7 @@
   </div>
 </template>
 <script>
-  import TSectionTitle from '@/components/TSectionTitle'
+  import TSectionTitle from '@/components/includes/TSectionTitle'
   // import CategoryAdd from '@/components/CategoryAdd'
   
   export default {
@@ -42,7 +44,12 @@
           description: this.description,
         }
         try {
-          await this.$http.post('http://localhost:8081/gobl/cats', formdata)
+          await this.$http.post('http://localhost:8081/gobl/v1/cats',
+            formdata, {
+              headers: {
+                Authorization: this.$store.state.token,
+              },
+            })
           this.$router.push({ name: 'Home' })
         } catch (error) {
           // eslint-disable-next-line
@@ -51,12 +58,14 @@
       },
     },
     async mounted() {
-      this.cats = this.$resource('http://localhost:8081/gobl/cats/')
+      this.cats = await this.$http.get('http://localhost:8081/gobl/v1/cats/', {
+        headers: {
+          Authorization: this.$store.state.token,
+        },
+      })
       try {
-        const response = await this.cats.query()
+        const response = await this.cats
         this.cats = response.data
-        // eslint-disable-next-line
-        console.log(this.cats)
       } catch (err) {
         // eslint-disable-next-line
         console.log('Erreur', err)

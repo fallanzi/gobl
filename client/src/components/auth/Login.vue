@@ -10,7 +10,7 @@
             <input type="email" name="email" id="email" v-model="email"> 
             <label for="password">Password</label>  
             <input type="password" name="password" id="password" v-model="password">
-            <button type="submit" @click="login()">Login</button> 
+            <button type="submit" @click="login">Login</button> 
           </div>  
           <!-- <router-link :to="{ name: 'Hello' }">Home</router-link> -->
         </div>
@@ -21,9 +21,8 @@
 </template>
 
 <script>
-import TSectionTitle from '@/components/TSectionTitle'
+import TSectionTitle from '@/components/includes/TSectionTitle'
 import Home from '@/components/Home'
-// import AuthenticationService from '@/services/AuthenticationService'
 
 export default {
   data() {
@@ -47,7 +46,7 @@ export default {
         const response = await this.$http.post('http://localhost:8081/login', formlogin)
         const t = response.data.token
         const u = response.data.user
-        this.$store.dispatch('setTokenAct', t)
+        this.$store.dispatch('setTokenAct', `Bearer ${t}`)
         this.$store.dispatch('setUserAct', u)
         this.email = ''
         this.password = ''

@@ -13,6 +13,7 @@
               <router-link :to="{name:'Post', params:{id: `${post._id}` } }" > Lire </router-link>
             </div>
           </div>
+          <router-link to="/posts" v-if="user.role == 'client'" > Backend </router-link>
         </div>
       </div>
     </section>
@@ -20,9 +21,9 @@
 </template>
 
 <script>
-import THeader from '@/components/THeader'
-import TSectionTitle from '@/components/TSectionTitle'
-import TFooter from '@/components/TFooter'
+import THeader from '@/components/includes/THeader'
+import TSectionTitle from '@/components/includes/TSectionTitle'
+import TFooter from '@/components/includes/TFooter'
 
 export default {
   name: 'app',
@@ -40,15 +41,19 @@ export default {
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Lorem ipsum dolor sit amet consectetur adipisicing elit.`,
+      user: {},
     }
   },
   async mounted() {
-    this.posts = this.$resource('http://localhost:8081/v1/gobl/posts/')
+    this.posts = await this.$http.get('http://localhost:8081/gobl/v1/posts', {
+      headers: {
+        Authorization: this.$store.state.token,
+      },
+    })
     try {
-      const response = await this.posts.query()
+      const response = await this.posts
       this.posts = response.data
-      // eslint-disable-next-line
-      console.log(this.posts)
+      this.user = this.$store.state.user
     } catch (err) {
       // eslint-disable-next-line
       console.log('Erreur', err)

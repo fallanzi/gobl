@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import THeader from '@/components/THeader'
-import TSectionTitle from '@/components/TSectionTitle'
-import TFooter from '@/components/TFooter'
+import THeader from '@/components/includes/THeader'
+import TSectionTitle from '@/components/includes/TSectionTitle'
+import TFooter from '@/components/includes/TFooter'
 
 export default {
   name: 'app',
@@ -20,14 +20,14 @@ export default {
   },
   data() {
     return {
-      users: [],
+      user: [],
     }
   },
   async mounted() {
-    this.users = this.$resource('http://localhost:8081')
+    this.user = this.$store.state.user
     try {
-      const response = await this.users.query()
-      this.users = response.data
+      const response = await this.user
+      this.user = response.data
     } catch (err) {
       // eslint-disable-next-line
       console.log('Erreur', err)

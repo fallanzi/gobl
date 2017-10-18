@@ -6,7 +6,7 @@ Vue.use(Vuex)
 /* eslint-disable */
 
 const store = new Vuex.Store({
-  strict: true,
+  strict: false,
   state: {
     token: null,
     user: null,

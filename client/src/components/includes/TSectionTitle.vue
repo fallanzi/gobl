@@ -18,7 +18,7 @@
 
   @font-face{
     font-family: title-font;
-    src: url('../../static/fonts/roboto/Coda.ttf');
+    src: url('../../../static/fonts/roboto/Coda.ttf');
     font-weight: bolder;
   }
 

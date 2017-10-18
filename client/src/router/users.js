@@ -1,17 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import UsersList from '@/components/UsersList'
-import About from '@/components/About'
-// import Home from '@/components/Home'
+import Backend from '@/components/Backend'
 
-Vue.use(Router);
-const ques = {
-  path: '/hash',
-  name: 'About',
-  component: About,
+Vue.use(Router)
+const road = {
+  path: '/backend',
+  name: 'Backend',
+  component: Backend,
 }
 
-
 export default new Router({
-  ques,
+  mode: 'history',
+  road,
 })

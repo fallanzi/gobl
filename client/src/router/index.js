@@ -1,16 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import UsersList from '@/components/UsersList'
 
 import Home from '@/components/Home'
-import Login from '@/components/Login'
-import Post from '@/components/Post'
-import CategoryAdd from '@/components/CategoryAdd'
+import Backend from '@/components/Backend'
 
+import Login from '@/components/auth/Login'
 
-import About from '@/components/About'
-import Contacts from '@/components/Contacts'
-import Realisations from '@/components/Realisations'
+import Post from '@/components/posts/Post'
+import CategoryAdd from '@/components/posts/CategoryAdd'
+import PostAdd from '@/components/posts/PostAdd'
+
+import About from '@/components/includes/About'
+import Contacts from '@/components/includes/Contacts'
+import Realisations from '@/components/includes/Realisations'
 
 Vue.use(Router);
 const routes = [
@@ -18,6 +20,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/backend',
+    name: 'Backend',
+    component: Backend,
   },
   {
     path: '/account/login',
@@ -35,15 +42,20 @@ const routes = [
    */
 
   {
-    path: '/categories/add',
+    path: '/categories',
     name: 'CategoryAdd',
     component: CategoryAdd,
   },
-
+  {
+    path: '/posts',
+    name: 'PostAdd',
+    component: PostAdd,
+  },
 
   /**
    * Static Pages
    */
+
   {
     path: '/about',
     name: 'About',
@@ -58,11 +70,6 @@ const routes = [
     path: '/contacts',
     name: 'Contacts',
     component: Contacts,
-  },
-  {
-    path: '/users/list',
-    name: 'UsersList',
-    component: UsersList,
   },
 ]
 
