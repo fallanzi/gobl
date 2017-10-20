@@ -1,20 +1,31 @@
 /*                            FONT  SCSS  CODE                            */
+/* @font-face{
+	font-family: robotob;
+	src: url('../fonts/roboto/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: robotol;
+	src: url('../fonts/roboto/Roboto-Light.ttf');
+	font-weight: normal;
+	font-style: normal;
+} */
 @font-face {
-  font-family: robotob;
-  src: url("../fonts/roboto/Roboto-Regular.ttf");
-  font-weight: normal;
-  font-style: normal; }
+  font-family: blogh;
+  src: url("../fonts/Hindvddr.ttf");
+  font-weight: bold; }
 @font-face {
-  font-family: robotol;
-  src: url("../fonts/roboto/Roboto-Light.ttf");
-  font-weight: normal;
-  font-style: normal; }
+  font-family: blogl;
+  src: url("../fonts/Pontano.ttf");
+  font-weight: light; }
 /*                           GLOBAL  SCSS  CODE                           */
 h1, h2, h3, h4, h5, h6 {
-  font-family: robotob; }
+  font-family: blogh; }
 
 p, i, span, div {
-  font-family: robotol; }
+  font-family: blogl; }
 
 .block {
   width: 1104px;
@@ -47,7 +58,7 @@ header {
   height: 70px;
   line-height: 70px;
   color: #fff;
-  background-color: #666633;
+  background-color: #54bbff;
   position: fixed;
   width: 100%; }
   header .block {
@@ -60,8 +71,12 @@ header {
       word-spacing: 10px;
       width: 25%;
       float: left; }
-      header .block .name h4 {
-        margin: 0 !important; }
+      header .block .name a {
+        font-family: blogh !important;
+        color: #fff !important;
+        text-decoration: none; }
+        header .block .name a:hover {
+          text-decoration: none; }
     header .block .menu {
       width: 48%;
       float: left; }
@@ -80,7 +95,7 @@ header {
     margin-left: 30px;
     text-decoration: none; }
     header .menu a:hover {
-      color: #ddd; }
+      color: #555; }
   header .research form {
     padding: 0; }
   header .research input, header .research button {
@@ -89,38 +104,34 @@ header {
     font-size: 1rem; }
   header .research input {
     width: 70%;
-    background-color: #33331a;
+    background-color: #fff;
     padding-left: 10px;
     margin-right: 0;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     outline: none; }
-    header .research input::placeholder {
-      color: #ddd; }
     header .research input:focus {
-      background-color: #33331a;
-      color: #eee; }
-      header .research input:focus::placeholder {
-        color: #fff; }
+      color: #777; }
   header .research button {
     width: 15%;
     margin-left: -5px;
-    background-color: #444422;
+    background-color: #0098fc;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     color: #fff;
     cursor: pointer; }
 
 section#title {
-  padding: 50px 0 75px 0;
-  background-color: #666633;
+  padding: 85px 0 20px 0 !important;
+  background-color: #54bbff;
   color: #fff;
-  padding: 60px; }
+  margin-bottom: 50px; }
   section#title .md-8 {
     text-align: justify;
     float: none !important; }
     section#title .md-8 div.name {
-      font-size: 2.5rem; }
+      font-size: 3.7rem;
+      font-family: blogh !important; }
     section#title .md-8 p {
       font-size: 1.7rem; }
     section#title .md-8 span.date {
@@ -143,7 +154,7 @@ section.main {
     font-size: 1.5rem;
     margin-top: 35px; }
   section.main p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 2rem;
     color: #555;
     text-align: justify; }
@@ -157,7 +168,7 @@ section.main {
     color: #000;
     font-weight: bold; }
   section.main a {
-    color: #666633;
+    color: #54bbff;
     text-decoration: none; }
   section.main a:hover {
     color: #cc0000; }
@@ -233,13 +244,13 @@ div.form-container {
     padding: 0 40px;
     font-size: 1rem;
     cursor: pointer;
-    background: linear-gradient(#666633, #222211);
+    background: linear-gradient(#54bbff, #008fed);
     border: 1px solid #eee;
     color: #fff;
     border-radius: 6px;
     transition: 300ms ease-in-out; }
     div.form-container button:hover {
-      background: linear-gradient(#222211, #666633);
+      background: linear-gradient(#008fed, #54bbff);
       transition: 300ms ease-in-out; }
 
 div.list ul {

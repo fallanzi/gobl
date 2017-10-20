@@ -1,12 +1,12 @@
 $md-width: 08.1%;
-$color: #666633;
+$color: #54bbff;
 
 
 ////////////////////////////////////////////////////////////////////////////
 /*                            FONT  SCSS  CODE                            */
 ////////////////////////////////////////////////////////////////////////////
 
-@font-face{
+/* @font-face{
 	font-family: robotob;
 	src: url('../fonts/roboto/Roboto-Regular.ttf');
 	font-weight: normal;
@@ -18,6 +18,18 @@ $color: #666633;
 	src: url('../fonts/roboto/Roboto-Light.ttf');
 	font-weight: normal;
 	font-style: normal;
+} */
+
+@font-face{
+	font-family: blogh;
+	src: url('../fonts/Hindvddr.ttf');
+	font-weight: bold;
+}
+
+@font-face{
+	font-family: blogl;
+	src: url('../fonts/Pontano.ttf');
+	font-weight: light;
 }
 
 
@@ -26,11 +38,11 @@ $color: #666633;
 ////////////////////////////////////////////////////////////////////////////
 
 h1, h2, h3, h4, h5, h6{
-	font-family: robotob;
+	font-family: blogh;
 }
 
 p, i, span, div{
-	font-family: robotol;
+	font-family: blogl;
 }
 
 .block{
@@ -103,8 +115,13 @@ header{
 			word-spacing: 10px;
 			width: 25%;
 			float: left;
-			h4{
-				margin: 0!important;
+			a{
+				font-family: blogh!important;
+				color: #fff!important;
+				text-decoration: none;
+				&:hover{
+					text-decoration: none;
+				}
 			}
 		}
 		.menu{
@@ -133,7 +150,7 @@ header{
 			margin-left: 30px;
 			text-decoration: none;
 			&:hover{
-				color: #ddd;
+				color: #555;
 			}
 		}
 	}
@@ -151,20 +168,20 @@ header{
 
 		input{
 			width: 70%;
-			background-color: darken($color, 15);
+			background-color: #fff;
 			padding-left: 10px;
 			margin-right: 0;
 			border-top-left-radius: 5px;
 			border-bottom-left-radius: 5px;
 			outline: none;
 			&::placeholder{
-				color: #ddd;
+				//color: #ddd;
 			}
 			&:focus{
-				background-color: darken($color, 15);
-				color: #eee;
+				//background-color: darken($color, 15);
+				color: #777;
 				&::placeholder{
-					color: #fff;
+					//color: #fff;
 				}
 			}
 		}
@@ -172,7 +189,7 @@ header{
 		button{
 			width: 15%;
 			margin-left: -5px;
-			background-color: darken($color, 10);
+			background-color: darken($color, 17);
 			border-top-right-radius: 5px;
 			border-bottom-right-radius: 5px;
 			color: #fff;
@@ -182,15 +199,16 @@ header{
 }
 
 section#title {
-  padding: 50px 0 75px 0;
+  padding: 85px 0 20px 0 !important;
   background-color: $color;
   color: #fff;
-  padding: 60px;
+  margin-bottom: 50px;
   .md-8 {
     text-align: justify;
     float: none!important;
     div.name {
-      font-size: 2.5rem;
+	  font-size: 3.7rem;
+	  font-family: blogh!important;
     }
     p {
       font-size: 1.7rem;
@@ -225,7 +243,7 @@ section.main{
 		margin-top: 35px;
 	}
 	p{
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		line-height: 2rem;
 		color: #555;
 		text-align: justify;
