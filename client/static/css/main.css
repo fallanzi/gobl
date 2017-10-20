@@ -58,7 +58,7 @@ header {
   height: 70px;
   line-height: 70px;
   color: #fff;
-  background-color: #54bbff;
+  background-color: #00a7d1;
   position: fixed;
   width: 100%; }
   header .block {
@@ -115,7 +115,7 @@ header {
   header .research button {
     width: 15%;
     margin-left: -5px;
-    background-color: #0098fc;
+    background-color: #00627a;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     color: #fff;
@@ -123,7 +123,7 @@ header {
 
 section#title {
   padding: 85px 0 20px 0 !important;
-  background-color: #54bbff;
+  background-color: #00a7d1;
   color: #fff;
   margin-bottom: 50px; }
   section#title .md-8 {
@@ -168,7 +168,7 @@ section.main {
     color: #000;
     font-weight: bold; }
   section.main a {
-    color: #54bbff;
+    color: #00a7d1;
     text-decoration: none; }
   section.main a:hover {
     color: #cc0000; }
@@ -244,13 +244,13 @@ div.form-container {
     padding: 0 40px;
     font-size: 1rem;
     cursor: pointer;
-    background: linear-gradient(#54bbff, #008fed);
+    background: linear-gradient(#00a7d1, #00566b);
     border: 1px solid #eee;
     color: #fff;
     border-radius: 6px;
     transition: 300ms ease-in-out; }
     div.form-container button:hover {
-      background: linear-gradient(#008fed, #54bbff);
+      background: linear-gradient(#00566b, #00a7d1);
       transition: 300ms ease-in-out; }
 
 div.list ul {
