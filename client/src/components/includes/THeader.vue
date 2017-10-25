@@ -3,7 +3,7 @@
     <div class="block">
       <div class="line">
         <div class="name">
-          <router-link to="/"> GOBL BLOG LOBG </router-link>
+          <router-link to="/"> Hodonou Sounton </router-link>
         </div>
         <div class="menu">
           <ul>
