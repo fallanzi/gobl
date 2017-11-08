@@ -5,6 +5,10 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  resume: {
+    type: String,
+    required: true,
+  },
   content: {
     type: String,
     required: true,

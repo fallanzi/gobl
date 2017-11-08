@@ -3,14 +3,13 @@
     <div class="block">
       <div class="line">
         <div class="name">
-          GOBL BLOG LOBG
+          <router-link to="/"> Hodonou Sounton </router-link>
         </div>
-
         <div class="menu">
           <ul>
-            <a href="#">A PROPOS</a>
-            <a href="#">REALISATION</a>
-            <a href="#">CONTACT</a>
+            <router-link to="/about"> A PROPOS </router-link>
+            <router-link to="/realisations">REALISATIONS</router-link>
+            <router-link to="/contacts">CONTACT</router-link>
           </ul>
         </div>
 

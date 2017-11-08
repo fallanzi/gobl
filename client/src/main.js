@@ -1,25 +1,33 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue';
-import Vuetify from 'vuetify'
+import Vue from 'vue'
 import VueResource from 'vue-resource'
+import Vuex from 'vuex'
 
-import App from './App';
-// import router from './router';
+import App from './App'
+import router from './router/index'
+import store from './store/store'
 
-Vue.config.productionTip = false;
-Vue.use(Vuetify)
+Vue.config.productionTip = false
 Vue.use(VueResource)
+Vue.use(Vuex)
 Vue.http.options.emulateJSON = true
 // Vue.http.options.root = ''
 
-// import('vuetify/dist/vuetify.min.css')
+/* eslint-disable */
 
-
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
-  // router,
+  router,
+  store,
   template: '<App/>',
   components: { App },
-});
+})
+
+// new Vue({
+//   el: '#back',
+//   users,
+//   // store,
+//   template: '<Back/>',
+//   components: { Back },
+// })

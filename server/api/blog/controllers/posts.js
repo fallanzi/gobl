@@ -10,8 +10,10 @@ exports.list = async (req, res) => {
 }
 
 exports.create = async (req, res) => {
+  const post = req.body
+  post.created = new Date()
   try {
-    res.status(201).json(await Post.create(req.body))
+    res.status(201).json(await Post.create(post))
   } catch (err) {
     res.status(500).json({ error: err.message })
   }

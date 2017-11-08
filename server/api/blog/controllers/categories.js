@@ -18,7 +18,7 @@ exports.create = async (req, res) => {
 
 exports.read = async (req, res) => {
   try {
-    res.status(201).json(await Category.findById(req.params.id))
+    res.status(200).json(await Category.findById(req.params.id))
   } catch (err) {
     res.status(404).json({ error: err.message })
   }
